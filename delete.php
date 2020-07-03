@@ -11,5 +11,5 @@ $query = "DELETE FROM users WHERE username = \"".$_POST["username"]."\";";
 
 
 if(mysqli_query($link, $query))
-    header("Location: http://mysite/show&delete.php");
+    header("Location: http://testproject/show.delete.php");
 ?>

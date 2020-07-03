@@ -31,11 +31,10 @@ while( $row = mysqli_fetch_assoc($result) ) {
     print '<td align="center">' . $row['username'] . "</td>";
     print '<td align="center">' . $row['password'] . "</td>";
     //print '<td align="center">' . '<a href="delete.php?username=' . $row["username"] . '">delete</a>' . "</td>";
-    print '<td align="center">' . '<form action="/delete.php" method="post">
+    print '<td align="center">' . '<form action="delete.php" method="post">
                                     <input type="submit" value="del">
                                     <input type="hidden" name="username" value="'. $row["username"].'">
                                    </form>' . "</td>";
-
     print "</tr>";
 }
 ?>

@@ -32,7 +32,7 @@ if (!$link) {
 echo 'Connected successfully';
 
 
-    $sql = "INSERT INTO users (username,password) VALUES ('.$username','$userpassword')";
+    $sql = "INSERT INTO users (username,password) VALUES ('$username','$userpassword')";
 
     if (mysqli_query($link, $sql)) {
         echo "New record created successfully";

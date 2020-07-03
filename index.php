@@ -1,12 +1,12 @@
 <html>
-<head>
+    <head>
     <title>My first PHP Website</title>
-</head>
+    </head>
 <body>
 <?php
-echo "<p>Hello World!</p>";
+    echo "<p>it is working!</p>";
 ?>
-<a href="login.php"> Click here to login
+    <a href="login.php"> Click here to login
     <a href="register.php"> Click here to register
 </body>
 </html>
