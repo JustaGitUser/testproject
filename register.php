@@ -13,33 +13,40 @@
         </form>
     </body>
 </html>
-
 <?php
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $username = $_POST['username'];
-    $userpassword = $_POST['password'];
-    $bool = true;
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $username = $_POST['username'];
+        $userpassword = $_POST['password'];
+        $bool = true;
 
-    $host = 'localhost'; //имя хоста, на локальном компьютере это localhost
-    $user = 'root'; //имя пользователя, по умолчанию это root
-    $password = ''; //пароль, по умолчанию пустой
-    $db_name = 'first_db'; //имя базы данных
+        $host = 'localhost'; //имя хоста, на локальном компьютере это localhost
+        $user = 'root'; //имя пользователя, по умолчанию это root
+        $password = ''; //пароль, по умолчанию пустой
+        $db_name = 'first_db'; //имя базы данных
 
     $link = mysqli_connect('localhost', 'root', '','first_db');
-if (!$link) {
-    die('Could not connect: ' . mysqli_error());
-}
-echo 'Connected successfully';
-
-
-    $sql = "INSERT INTO users (username,password) VALUES ('$username','$userpassword')";
-
-    if (mysqli_query($link, $sql)) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($link);
+    if (!$link) {
+        die('Could not connect: ' . mysqli_error());
     }
-mysqli_close($link);
-
+    echo 'Connected successfully';
+    $query = "Select * from users"; //Query the users table
+    $result = mysqli_query($link, $query);
+    while($row = mysqli_fetch_assoc($result)) //display all rows from query
+        {
+         //   $table_users = $row['username']; // the first username row is passed on to $table_users, and so on until the query is finished
+            if($username == $row['username']) // checks if there are any matching fields
+            {
+                $bool = false; // sets bool to false
+                echo '<script>alert("Username has been taken!");</script>'; //Prompts the user
+                echo '<script>window.location.assign("register.php");</script>'; // redirects to register.php
+            }
+        }
+    $sql = "INSERT INTO users (username,password) VALUES ('$username','$userpassword')";
+        if (mysqli_query($link, $sql)) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($link);
+        }
+    mysqli_close($link);
 }
 ?>
