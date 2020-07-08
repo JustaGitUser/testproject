@@ -37,20 +37,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $db_name = 'first_db'; //имя базы данных
 
     $link = mysqli_connect('localhost', 'root', '','first_db');
-if (!$link) {
-    die('Could not connect: ' . mysqli_error());
-}
-echo 'Connected successfully';
-
+        if (!$link) { die('Could not connect: ' . mysqli_error()); }
+    echo 'Connected successfully';
 
     $sql = "INSERT INTO users (username,password) VALUES ('$username','$userpassword')";
 
-    if (mysqli_query($link, $sql)) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($link);
-    }
-mysqli_close($link);
+        if (mysqli_query($link, $sql)) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($link);
+        }
+        mysqli_close($link);
 
 }
 ?>
