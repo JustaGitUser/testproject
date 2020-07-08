@@ -58,7 +58,7 @@
         print '<td align="center">' . $row['username'] . "</td>";
         print '<td align="center">' . $row['password'] . "</td>";
         print '<td align="center">' . '<form action="delete.php" method="post">
-                                        <input type="submit" value="delete">
+                                        <input type="submit" class="btn btn-danger" value="delete">
                                         <input type="hidden" name="username" value="'. $row["username"].'">
                                         </form>' . "</td>";
         print "</tr>";
