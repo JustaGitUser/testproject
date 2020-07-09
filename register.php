@@ -9,9 +9,9 @@
     </head>
     <body>
         <div class="p-3 mb-2 bg-info text-white"><h1>
-                <small class="text-muted">you can</small>
+                <small class="text-muted"><span class="text-dark">you can</span></small>
                 register
-                <small class="text-muted">here</small>
+                <small class="text-muted"><span class="text-dark">here</span></small>
             </h1></div>
 
 <!--        <form action="register.php" method="POST">-->
@@ -52,28 +52,52 @@
 </html>
 
 <?php
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $username = $_POST['username'];
-    $userpassword = $_POST['password'];
-    $bool = true;
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $username = $_POST['username'];
+        $userpassword = $_POST['password'];
+        $bool = true;
 
-    $host = 'localhost'; //имя хоста, на локальном компьютере это localhost
-    $user = 'root'; //имя пользователя, по умолчанию это root
-    $password = ''; //пароль, по умолчанию пустой
-    $db_name = 'first_db'; //имя базы данных
+        $host = 'localhost'; //имя хоста, на локальном компьютере это localhost
+        $user = 'root'; //имя пользователя, по умолчанию это root
+        $password = ''; //пароль, по умолчанию пустой
+        $db_name = 'first_db'; //имя базы данных
 
-    $link = mysqli_connect('localhost', 'root', '','first_db');
+        $link = mysqli_connect('localhost', 'root', '','first_db');
         if (!$link) { die('Could not connect: ' . mysqli_error()); }
-    echo 'Connected successfully';
+        echo 'Connected successfully';
 
-    $sql = "INSERT INTO users (username,password) VALUES ('$username','$userpassword')";
-
-        if (mysqli_query($link, $sql)) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($link);
+        $query = "SELECT * FROM users";
+        $result = mysqli_query($link, $query);
+        while( $row = mysqli_fetch_assoc($result) ) {
+            $table_users = $row['username']; // the first username row is passed on to $table_users, and so on until the query is finished
+		    if($username == $table_users) // checks if there are any matching fields
+		    {
+		        $bool=false;
+                show_alert();
+                break;
+		    }
         }
-        mysqli_close($link);
+        if ($bool) {
+            $sql = "INSERT INTO users (username,password) VALUES ('$username','$userpassword')";
+            mysqli_query($link, $sql);
+        }
 
-}
+//        $sql = "INSERT INTO users (username,password) VALUES ('$username','$userpassword')";
+
+//        if (mysqli_query($link, $sql)) {
+//            echo "New record created successfully";
+//        } else {
+//            echo "Error: " . $sql . "<br>" . mysqli_error($link);
+        }
+//        mysqli_close($link);
+
+
+    function show_alert (){
+        Print '<div class="alert alert-warning alert-dismissible fade show" role="alert">';
+        Print '<strong>Holy guacamole!</strong> this name is already taken.';
+        Print '<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
+        Print '<span aria-hidden="true">&times;</span>';
+        Print '</button>';
+        Print '</div>';
+    }
 ?>
