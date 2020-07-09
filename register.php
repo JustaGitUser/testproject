@@ -8,11 +8,37 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     </head>
     <body>
-        <h2>Registration Page</h2>
+        <div class="p-3 mb-2 bg-info text-white"><h1>
+                <small class="text-muted">you can</small>
+                register
+                <small class="text-muted">here</small>
+            </h1></div>
+
+<!--        <form action="register.php" method="POST">-->
+<!--            Enter Username: <input type="text" name="username" required="required" /> <br/>-->
+<!--            Enter password: <input type="password" name="password" required="required" /> <br/>-->
+<!--           <input type="submit" value="Register"/>-->
+<!--        </form>-->
+
         <form action="register.php" method="POST">
-            Enter Username: <input type="text" name="username" required="required" /> <br/>
-            Enter password: <input type="password" name="password" required="required" /> <br/>
-           <input type="submit" value="Register"/>
+            <div class="form-row align-items-center">
+                <div class="col-auto">
+                    <label class="sr-only" for="inlineFormInput">username</label>
+                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="your name" name="username" required="required">
+                </div>
+                <div class="col-auto">
+                    <label class="sr-only" for="inlineFormInputGroup">password</label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">pass</div>
+                        </div>
+                        <input type="password" name="password" required="required" class="form-control" id="inlineFormInputGroup" placeholder="password">
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-2">register</button>
+                </div>
+            </div>
         </form>
 
         <nav class="navbar navbar-light bg-light">

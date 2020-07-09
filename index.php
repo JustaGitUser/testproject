@@ -8,10 +8,10 @@
 
     </head>
 <body>
-<?php
-    echo "<p>it is working!</p>";
-?>
-    <a href="login.php"> Click here to login
-    <a href="register.php"> Click here to register
+        <div class="p-3 mb-2 bg-info text-white"><h2>it is working</h2></div>
+<!--    <a href="login.php"> Click here to login-->
+<!--    <a href="register.php"> Click here to register-->
+        <a class="btn btn-primary" href="login.php" role="button">Click here to login</a>
+        <a class="btn btn-primary" href="register.php" role="button">Click here to register</a>
 </body>
 </html>

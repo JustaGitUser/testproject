@@ -1,17 +1,15 @@
 <?php
-    session_start(); //starts the session
-    if($_SESSION['user']){ //checks if user is logged in
-    }
-        else{
-        header("location:index.php"); // redirects if user is not logged in
-        }
+$host = 'localhost'; //имя хоста, на локальном компьютере это localhost
+$user = 'root'; //имя пользователя, по умолчанию это root
+$password = ''; //пароль, по умолчанию пустой
+$db_name = 'first_db'; //имя базы данных
 
-    if($_SERVER['REQUEST_METHOD'] == "GET")
-    {
-        mysql_connect("localhost", "root","") or die(mysql_error()); //Connect to server
-        mysql_select_db("first_db") or die("Cannot connect to database"); //Connect to database
-        $id = $_GET['id'];
-        mysql_query("DELETE FROM list WHERE id='$id'");
-        header("location: home.php");
-    }
+//Соединяемся с базой данных используя наши доступы:
+$link = mysqli_connect('localhost', 'root', '','first_db');
+
+$query = "DELETE FROM users WHERE username = \"".$_POST["username"]."\";";
+
+
+if(mysqli_query($link, $query))
+    header("Location: http://testproject/show.delete.php");
 ?>
