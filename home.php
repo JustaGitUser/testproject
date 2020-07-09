@@ -2,7 +2,7 @@
     <head>
         <title>My first PHP website</title>
     </head>
-    <?php
+<?php
     session_start(); //starts the session
     if($_SESSION['user']){ //checks if user is logged in
     }
@@ -10,7 +10,7 @@
         header("location:index.php"); // redirects if user is not logged in
     }
     $user = $_SESSION['user']; //assigns user value
-    ?>
+?>
     <body>
         <h2>Home Page</h2>
         <p>Hello <?php Print "$user"?>!</p> <!--Displays user's name-->
@@ -32,10 +32,10 @@
             <th>Public Post</th>
         </tr>
         <?php
-        mysql_connect("localhost", "root","") or die(mysql_error()); //Connect to server
-        mysql_select_db("first_db") or die("Cannot connect to database"); //connect to database
-        $query = mysql_query("Select * from list"); // SQL Query
-        while($row = mysql_fetch_array($query))
+        mysqli_connect("localhost", "root","") or die(mysqli_error()); //Connect to server
+        mysqli_select_db("first_db") or die("Cannot connect to database"); //connect to database
+        $query = mysqli_query("Select * from list"); // SQL Query
+        while($row = mysqli_fetch_array($query))
         {
             Print "<tr>";
             Print '<td align="center">'. $row['id'] . "</td>";

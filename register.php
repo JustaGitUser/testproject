@@ -55,7 +55,7 @@
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username = $_POST['username'];
         $userpassword = $_POST['password'];
-        $bool = true;
+        $tablename = false;
 
         $host = 'localhost'; //имя хоста, на локальном компьютере это localhost
         $user = 'root'; //имя пользователя, по умолчанию это root
@@ -72,14 +72,15 @@
             $table_users = $row['username']; // the first username row is passed on to $table_users, and so on until the query is finished
 		    if($username == $table_users) // checks if there are any matching fields
 		    {
-		        $bool=false;
+		        $tablename = true;
                 show_alert();
                 break;
 		    }
         }
-        if ($bool) {
+        if (!$tablename) {
             $sql = "INSERT INTO users (username,password) VALUES ('$username','$userpassword')";
             mysqli_query($link, $sql);
+            show_gratitude();
         }
 
 //        $sql = "INSERT INTO users (username,password) VALUES ('$username','$userpassword')";
@@ -88,16 +89,24 @@
 //            echo "New record created successfully";
 //        } else {
 //            echo "Error: " . $sql . "<br>" . mysqli_error($link);
-        }
-//        mysqli_close($link);
+        mysqli_close($link);
+    }
 
 
     function show_alert (){
         Print '<div class="alert alert-warning alert-dismissible fade show" role="alert">';
-        Print '<strong>Holy guacamole!</strong> this name is already taken.';
+        Print '<strong>Holy guacamole!</strong> this name is already taken. try again';
         Print '<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
         Print '<span aria-hidden="true">&times;</span>';
         Print '</button>';
         Print '</div>';
     }
+        function show_gratitude (){
+            Print'<div class="alert alert-success" role="alert">';
+            Print'<h4 class="alert-heading">Well done!</h4>';
+            Print'<p>thank you, Igor! your help is very useful</p>';
+            Print'<hr>';
+            Print'<p class="mb-0">however i need to try harder to succeed</p>';
+            Print'</div>';
+        }
 ?>
