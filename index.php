@@ -8,10 +8,29 @@
 
     </head>
 <body>
-        <div class="p-3 mb-2 bg-info text-white"><h2>it is working</h2></div>
-<!--    <a href="login.php"> Click here to login-->
-<!--    <a href="register.php"> Click here to register-->
-        <a class="btn btn-primary" href="login.php" role="button">Click here to login</a>
-        <a class="btn btn-primary" href="register.php" role="button">Click here to register</a>
+    <nav class="navbar navbar-expand-lg navbar-light p-3 mb-2 bg-info text-white">
+        <span class="p-3 mb-2 bg-info text-white"><h2>it is working</h2></span>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="login.php">login <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register.php">register</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <lable>dfkdjfkdjf</lable>
+                <button class="btn btn-outline-success my-2 my-sm-0 p-3 mb-2 bg-danger text-white" type="submit">logout</button>
+            </form>
+        </div>
+    </nav>
+<!--        <div class="p-3 mb-2 bg-info text-white">-->
+<!--            <h2>it is working</h2>-->
+<!--        </div>-->
+<!---->
+<!--        <a class="btn btn-primary" href="login.php" role="button">Click here to login</a>-->
+<!--        <a class="btn btn-primary" href="register.php" role="button">Click here to register</a>-->
 </body>
 </html>

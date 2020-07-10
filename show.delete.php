@@ -7,16 +7,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </head>
 <body>
-<!--    <table border="1px" width="50%">-->
-<!--    <tr>-->
-<!--        <th>username</th>-->
-<!--        <th>password</th>-->
-<!--        <th>delete users</th>-->
-<!--    </tr>-->
+    <div class="p-3 mb-2 bg-info text-white"><h2>table of users</h2></div>
     <table class="table table-striped">
         <thead>
         <tr>
-            <th scope="col">#</th>
             <th scope="col">username</th>
             <th scope="col">password</th>
             <th scope="col">delete</th>
@@ -42,22 +36,11 @@
     //Делаем запрос к БД, результат запроса пишем в $result:
     $result = mysqli_query($link, $query);
     while( $row = mysqli_fetch_assoc($result) ) {
-        //printf("%s (%s)<br>", $row['username'], $row['password']);
-
-//        print "<tr>";
-//        print '<td align="center">' . $row['username'] . "</td>";
-//        print '<td align="center">' . $row['password'] . "</td>";
-        //print '<td align="center">' . '<a href="delete.php?username=' . $row["username"] . '">delete</a>' . "</td>";
-//        print '<td align="center">' . '<form action="delete.php" method="post">
-//                                        <input type="submit" value="del">
-//                                        <input type="hidden" name="username" value="'. $row["username"].'">
-//                                       </form>' . "</td>";
-//        print "</tr>";
         print "<tr>";
-        print '<th scope="row"></th>';
-        print '<td align="center">' . $row['username'] . "</td>";
-        print '<td align="center">' . $row['password'] . "</td>";
-        print '<td align="center">' . '<form action="delete.php" method="post">
+        print '<th scope="row" ></th>';
+        print '<td>' . $row['username'] . "</td>";
+        print '<td>' . $row['password'] . "</td>";
+        print '<td>' . '<form action="delete.php" method="post">
                                         <input type="submit" class="btn btn-danger" value="delete">
                                         <input type="hidden" name="username" value="'. $row["username"].'">
                                         </form>' . "</td>";
@@ -67,6 +50,8 @@
         </tbody>
     </table>
     <a href="register.php" class="btn btn-primary">Click here to go on register page</a>
+    <a class="btn btn-primary" href="login.php" role="button">Click here to login</a>
+
 </body>
 </html>
 

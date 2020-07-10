@@ -9,7 +9,8 @@ $link = mysqli_connect('localhost', 'root', '','first_db');
 
 $query = "DELETE FROM users WHERE username = \"".$_POST["username"]."\";";
 
-
-if(mysqli_query($link, $query))
+if(mysqli_query($link, $query)) {
     header("Location: http://testproject/show.delete.php");
+    mysqli_close($link);
+}
 ?>

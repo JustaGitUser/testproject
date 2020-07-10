@@ -8,12 +8,47 @@
 
     </head>
     <body>
-        <h2>Login Page</h2>
-        <a href="index.php">Click here to go back</a>><br/><br/>
-        <form action="checklogin.php" method="POST">
-            Enter Username: <input type="text" name="username" required="required"/><br/>
-            Enter password: <input type="password" name="password" required="required"/><br/>
-            <input type="submit" value="Login"/>
+        <nav class="navbar navbar-expand-lg navbar-light p-3 mb-2 bg-info text-white">
+            <span class="p-3 mb-2 bg-info text-white"><h2>Login page</h2></span>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php">Click here to go back<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.php">go to register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="show.delete.php">show table</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <lable></lable>
+                    <button class="btn btn-outline-success my-2 my-sm-0 p-3 mb-2 bg-danger text-white" type="submit">logout</button>
+                </form>
+            </div>
+        </nav>
+
+        <form action="checklogin.php" method="post">
+            <div class="form-row align-items-center">
+                <div class="col-auto">
+                    <label class="sr-only" for="inlineFormInput">name</label>
+                    <input type="text" class="form-control mb-2" id="inlineFormInput" name="username" placeholder="enter your name">
+                </div>
+                <div class="col-auto">
+                    <label class="sr-only" for="inlineFormInputGroup">password</label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">pass</div>
+                        </div>
+                        <input type="password" class="form-control" id="inlineFormInputGroup" name="password" placeholder="enter your password">
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-2">login</button>
+                </div>
+            </div>
         </form>
     </body>
 </html>

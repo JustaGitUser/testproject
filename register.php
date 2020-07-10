@@ -14,12 +14,6 @@
                 <small class="text-muted"><span class="text-dark">here</span></small>
             </h1></div>
 
-<!--        <form action="register.php" method="POST">-->
-<!--            Enter Username: <input type="text" name="username" required="required" /> <br/>-->
-<!--            Enter password: <input type="password" name="password" required="required" /> <br/>-->
-<!--           <input type="submit" value="Register"/>-->
-<!--        </form>-->
-
         <form action="register.php" method="POST">
             <div class="form-row align-items-center">
                 <div class="col-auto">
@@ -104,9 +98,9 @@
         function show_gratitude (){
             Print'<div class="alert alert-success" role="alert">';
             Print'<h4 class="alert-heading">Well done!</h4>';
-            Print'<p>thank you, Igor! your help is very useful</p>';
+            Print'<p>you good</p>';
             Print'<hr>';
-            Print'<p class="mb-0">however i need to try harder to succeed</p>';
+            Print'<p class="mb-0">go on</p>';
             Print'</div>';
         }
 ?>
