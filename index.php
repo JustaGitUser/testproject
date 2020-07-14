@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
     <head>
     <title>My first PHP Website</title>
@@ -20,17 +23,17 @@
                     <a class="nav-link" href="register.php">register</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <lable>dfkdjfkdjf</lable>
-                <button class="btn btn-outline-success my-2 my-sm-0 p-3 mb-2 bg-danger text-white" type="submit">logout</button>
+            <form action="logout.php" class="form-inline my-2 my-lg-0">
+                <lable>
+                    <?php
+                        if (isset($_SESSION['user']))
+                            echo $_SESSION['user'];
+                        else echo "<a href='login.php'>".'you must log in'."</a>";
+                    ?>
+                </lable>
+                <button class="btn btn-outline-success bg-danger text-white" type="submit">logout</button>
             </form>
         </div>
     </nav>
-<!--        <div class="p-3 mb-2 bg-info text-white">-->
-<!--            <h2>it is working</h2>-->
-<!--        </div>-->
-<!---->
-<!--        <a class="btn btn-primary" href="login.php" role="button">Click here to login</a>-->
-<!--        <a class="btn btn-primary" href="register.php" role="button">Click here to register</a>-->
 </body>
 </html>
